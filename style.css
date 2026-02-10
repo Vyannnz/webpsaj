@@ -1,44 +1,43 @@
-/* 1. VARIABEL WARNA - Agar mudah mengatur tema merah-hitam */
+/* 1. VARIABEL & RESET DASAR */
 :root {
-    --hitam-gelap: #0a0a0a;   /* Hitam pekat Akatsuki */
-    --merah-itachi: #b30000;  /* Merah darah Sharingan */
-    --merah-terang: #ff1a1a;  /* Merah terang untuk hover */
-    --putih-bersih: #ffffff;  /* Untuk teks agar kontras */
-    --abu-abu-gelap: #1a1a1a; /* Background kartu */
+    --merah-utama: #dc143c;    /* Merah Crimson yang elegan */
+    --hitam-gelap: #0a0a0a;    /* Hitam pekat untuk kesan premium */
+    --hitam-kartu: #1a1a1a;    /* Hitam yang sedikit lebih terang untuk kartu */
+    --putih-teks: #f4f4f4;     /* Putih tulang agar tidak terlalu silau */
+    --transisi: 0.4s ease;     /* Durasi animasi yang halus */
 }
 
-/* 2. RESET DASAR */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Menghitung padding dalam lebar elemen */
-    font-family: 'Poppins', 'Segoe UI', sans-serif; /* Font modern */
+    box-sizing: border-box;    /* Memastikan padding tidak merusak lebar elemen */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font bersih & modern */
 }
 
 html {
-    scroll-behavior: smooth; /* Efek scroll halus saat klik menu */
+    scroll-behavior: smooth;   /* Efek scroll halus saat klik menu navigasi */
 }
 
 body {
-    background-color: var(--hitam-gelap); /* Warna dasar hitam */
-    color: var(--putih-bersih);
-    line-height: 1.6;
+    background-color: var(--hitam-gelap); /* Warna latar belakang seluruh web */
+    color: var(--putih-teks);             /* Warna teks default */
+    overflow-x: hidden;                   /* Menghindari scroll horizontal yang mengganggu */
 }
 
-/* 3. NAVIGASI (HEADER) */
+/* 2. NAVIGASI (HEADER) */
 header {
-    background-color: rgba(10, 10, 10, 0.9); /* Hitam transparan */
-    padding: 20px 10%;
-    position: fixed; /* Tetap di atas */
+    background-color: rgba(10, 10, 10, 0.95); /* Hitam transparan agar tetap terlihat saat scroll */
+    padding: 1.2rem 10%;
+    position: fixed;            /* Menempel di atas layar saat discroll */
     width: 100%;
     top: 0;
-    z-index: 1000;
-    border-bottom: 2px solid var(--merah-itachi); /* Garis merah di bawah nav */
+    z-index: 1000;              /* Memastikan navigasi berada di lapisan paling depan */
+    border-bottom: 2px solid var(--merah-utama); /* Garis bawah navigasi */
 }
 
 nav {
     display: flex;
-    justify-content: space-between; /* Logo kiri, link kanan */
+    justify-content: space-between; /* Logo di kiri, menu di kanan */
     align-items: center;
 }
 
@@ -50,160 +49,155 @@ nav {
 }
 
 .logo span {
-    color: var(--merah-itachi); /* Kata 'Dua' menjadi merah */
+    color: var(--merah-utama); /* Memberi warna merah pada kata 'Dua' */
 }
 
 .nav-links {
     display: flex;
-    list-style: none;
+    list-style: none; /* Menghilangkan titik (bullet) pada list */
 }
 
 .nav-links li {
-    margin-left: 30px;
+    margin-left: 2rem;
 }
 
 .nav-links li a {
-    text-decoration: none;
-    color: var(--putih-bersih);
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    color: var(--putih-teks);
     font-weight: 500;
-    transition: 0.3s; /* Animasi transisi warna */
+    transition: var(--transisi);
 }
 
 .nav-links li a:hover {
-    color: var(--merah-itachi); /* Berubah merah saat disentuh */
+    color: var(--merah-utama); /* Berubah warna merah saat kursor diarahkan */
+    text-shadow: 0 0 8px var(--merah-utama); /* Efek cahaya (glow) merah */
 }
 
-/* 4. HERO SECTION - Dengan Background Itachi */
+/* 3. HERO SECTION (BERANDA) */
 .hero-kelompok {
-    height: 100vh;
-    /* Menggunakan foto Itachi sebagai background utama */
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
-                url('https://wallpaperaccess.com/full/241315.jpg'); 
-    background-size: cover;
-    background-position: center;
+    height: 100vh; /* Memenuhi tinggi satu layar laptop */
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
+                url('https://wallpaperaccess.com/full/241315.jpg'); /* Background Itachi dengan filter gelap agar teks terbaca */
+    background-size: cover;      /* Gambar menutupi seluruh area hero */
+    background-position: center; /* Gambar fokus di tengah */
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     text-align: center;
-    padding-top: 80px;
 }
 
 .hero-overlay h1 {
-    font-size: 4rem;
-    margin-bottom: 10px;
-    text-shadow: 3px 3px 10px var(--merah-itachi); /* Efek cahaya merah pada teks */
+    font-size: 4rem; /* Ukuran judul yang besar dan tegas */
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 15px var(--merah-utama); /* Efek bayangan merah pada judul */
 }
 
 .btn-cek {
     display: inline-block;
-    padding: 12px 35px;
-    background-color: var(--merah-itachi);
+    padding: 0.8rem 2.5rem;
+    background-color: var(--merah-utama);
     color: white;
     text-decoration: none;
-    border-radius: 50px; /* Bentuk kapsul */
+    border-radius: 5px; /* Sudut kotak yang sedikit melengkung profesional */
     font-weight: bold;
-    transition: 0.4s;
-    border: 2px solid transparent;
+    transition: var(--transisi);
+    border: 1px solid var(--merah-utama);
 }
 
 .btn-cek:hover {
-    background-color: transparent;
-    border-color: var(--merah-itachi); /* Menjadi outline saat hover */
-    box-shadow: 0 0 20px var(--merah-itachi); /* Efek glow Sharingan */
+    background-color: transparent; /* Transparan saat dihover */
+    color: var(--merah-utama);
+    box-shadow: 0 0 20px var(--merah-utama); /* Efek glow yang dramatis */
 }
 
-/* 5. KARTU ANGGOTA (GRID) */
+/* 4. BAGIAN ANGGOTA KELOMPOK (GRID) */
 .section-container {
-    padding: 80px 10%;
+    padding: 6rem 10%; /* Memberi jarak dalam agar konten tidak mepet ke pinggir */
 }
 
 .section-title {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 50px;
-    position: relative;
-}
-
-.section-title::after {
-    content: '';
-    width: 100px;
-    height: 4px;
-    background: var(--merah-itachi);
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-bottom: 3rem;
+    border-bottom: 3px solid var(--merah-utama);
+    display: table;        /* Membuat border hanya sepanjang teks */
+    margin-left: auto;     /* Menempatkan judul di tengah */
+    margin-right: auto;
+    padding-bottom: 10px;
 }
 
 .kelompok-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Grid sejajar & responsif */
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Membuat kartu sejajar & responsif otomatis */
+    gap: 2.5rem; /* Jarak antar kartu */
 }
 
 .kelompok-card {
-    background-color: var(--abu-abu-gelap);
+    background-color: var(--hitam-kartu);
     border-radius: 15px;
-    overflow: hidden;
+    overflow: hidden;         /* Menjaga gambar agar tidak keluar dari sudut kartu */
     text-decoration: none;
     color: white;
-    transition: 0.4s;
-    border: 1px solid #333;
+    transition: var(--transisi);
+    border: 1px solid #333;   /* Border tipis agar kartu terlihat jelas */
 }
 
 .kelompok-card:hover {
-    transform: translateY(-10px); /* Melayang ke atas */
-    border-color: var(--merah-itachi);
-    box-shadow: 0 10px 30px rgba(179, 0, 0, 0.3);
+    transform: translateY(-10px); /* Kartu terangkat sedikit saat dihover */
+    border-color: var(--merah-utama);
+    box-shadow: 0 10px 30px rgba(220, 20, 60, 0.3); /* Bayangan merah halus */
 }
 
 .card-img img {
     width: 100%;
-    height: 300px;
-    object-fit: cover; /* Foto tidak penyet */
-    filter: grayscale(30%); /* Sedikit nuansa gelap */
+    height: 350px;     /* Tinggi foto anggota yang seragam */
+    object-fit: cover;  /* Foto tetap proporsional (tidak penyet) */
 }
 
 .card-info {
-    padding: 20px;
+    padding: 1.5rem;
     text-align: center;
 }
 
-/* 6. MAKALAH & VIDEO (IFRAME) */
+/* 5. BAGIAN LAPORAN & VIDEO */
 .content-wrapper, .video-wrapper {
-    background: var(--abu-abu-gelap);
-    padding: 20px;
-    border-radius: 20px;
-    border-left: 5px solid var(--merah-itachi); /* Aksen garis merah di samping */
+    background: var(--hitam-kartu);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
 .pdf-container, .video-container {
-    aspect-ratio: 16 / 9; /* Menjaga rasio video agar pas di laptop */
+    aspect-ratio: 16 / 9; /* Menjaga rasio layar tetap pas untuk laptop */
     width: 100%;
-    margin-bottom: 20px;
-    background: #000;
+    margin-bottom: 1.5rem;
+    border: 2px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 iframe {
+    width: 100%;
+    height: 100%;
     border: none;
-    border-radius: 10px;
 }
 
-/* 7. FOOTER */
+/* 6. FOOTER */
 footer {
     background-color: #050505;
+    padding: 3rem;
     text-align: center;
-    padding: 40px;
-    border-top: 1px solid #333;
+    border-top: 2px solid var(--merah-utama);
 }
 
 footer p {
-    color: #666;
+    color: #888;
     font-size: 0.9rem;
+    letter-spacing: 1px;
 }
 
-/* 8. RESPONSIVE (Layar Kecil) */
-@media (max-width: 768px) {
-    .hero-overlay h1 { font-size: 2.5rem; }
-    .nav-links { display: none; } /* Sembunyikan menu di HP (bisa ditambah burger menu nanti) */
+/* 7. RESPONSIVE LAYOUT (KHUSUS LAPTOP/TABLET) */
+@media (max-width: 992px) {
+    .section-container { padding: 4rem 5%; }
+    .hero-overlay h1 { font-size: 3rem; }
 }
